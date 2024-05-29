@@ -211,6 +211,9 @@
         var path = url.searchParams.get("path");
         // 初始化资源路径
         var panUrl = "http://" + "zyxq.me";
+        // 是否当前页立即跳转
+        var go = false;
+
 
         // 检查是否成功获取goto参数的值
         if (goto) {
@@ -219,27 +222,29 @@
                 panUrl = deUrl;
             } else {
                 if (goto == 'pan') {
-                    panUrl = "http://" + "zyxq.xyz"
+                    panUrl = "http://" + "zyxq.xyz";
                 } else if (goto == 'video') {
-                    panUrl = "http://" + "zyxq.net"
+                    panUrl = "http://v." + "zyxq.net";
+                    go = true;
                 } else if (goto == 'qian') {
-                    panUrl = "http://" + "xuegaoqian.com"
+                    panUrl = "http://" + "xuegaoqian.com";
                 } else if (goto == 'xiakan') {
-                    panUrl = "http://" + "xiakan.x-x.homes"
+                    panUrl = "http://" + "xiakan.x-x.homes";
                 } else if (goto == 'xiami') {
-                    panUrl = "http://" + "xm3.x-x.homes"
+                    panUrl = "http://" + "xm3.x-x.homes";
                 } else if (goto == 'daili') {
-                    panUrl = "http://" + "daili.zyxq.net"
+                    panUrl = "http://" + "daili.zyxq.net";
                 } else if (goto == 'fc') {
-                    panUrl = "http://" + "fc.zyxq.net"
+                    panUrl = "http://" + "fc.zyxq.net";
                 } else if (goto == 'jx') {
-                    panUrl = "http://" + "jx.zyxq.net"
+                    panUrl = "http://" + "jx.zyxq.net";
                 } else if (goto == 'me') {
-                    panUrl = "http://" + "zyxq.me"
+                    panUrl = "http://" + "zyxq.me";
                 } else if (goto == 'org') {
-                    panUrl = "http://" + "zyxq.org"
+                    panUrl = "http://" + "zyxq.org";
                 } else {
-                    panUrl = "http://" + "ziyuanxingqiu.cn"
+                    panUrl = "http://" + "ziyuanxingqiu.cn";
+                    go = true;
                 }
 
                 if (path) {
@@ -257,7 +262,11 @@
             console.log("未找到资源目标");
         }
         
-        into();
+        if (go) {
+            window.location = panUrl;
+        } else {
+            into();
+        }
 
         function sleep(ms) {  
             return new Promise(resolve => setTimeout(resolve, ms));
