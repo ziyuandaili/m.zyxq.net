@@ -210,9 +210,9 @@
         // 获取path参数的值
         var path = url.searchParams.get("path");
         // 初始化资源路径
-        var panUrl = "http://" + "zyxq.me";
+        var panUrl = "http://" + "ziyuanxingqiu.cn";
         // 是否当前页立即跳转
-        var go = false;
+        var go = true;
 
 
         // 检查是否成功获取goto参数的值
@@ -220,28 +220,38 @@
             var deUrl = decodeURI(goto);
             if (deUrl.startsWith('http')) { // 完整网址，直接跳转
                 panUrl = deUrl;
+                go = false;
             } else {
                 if (goto == 'pan') {
                     panUrl = "http://" + "zyxq.xyz";
+                    go = false;
                 } else if (goto == 'video') {
                     panUrl = "http://v." + "zyxq.net";
                     go = true;
                 } else if (goto == 'qian') {
                     panUrl = "http://" + "xuegaoqian.com";
+                    go = false;
                 } else if (goto == 'xiakan') {
                     panUrl = "http://" + "xiakan.x-x.homes";
+                    go = false;
                 } else if (goto == 'xiami') {
                     panUrl = "http://" + "xm3.x-x.homes";
+                    go = false;
                 } else if (goto == 'daili') {
                     panUrl = "http://" + "daili.zyxq.net";
+                    go = false;
                 } else if (goto == 'fc') {
                     panUrl = "http://" + "fc.zyxq.net";
+                    go = false;
                 } else if (goto == 'jx') {
                     panUrl = "http://" + "jx.zyxq.net";
+                    go = false;
                 } else if (goto == 'me') {
                     panUrl = "http://" + "zyxq.me";
+                    go = false;
                 } else if (goto == 'org') {
                     panUrl = "http://" + "zyxq.org";
+                    go = false;
                 } else {
                     panUrl = "http://" + "ziyuanxingqiu.cn";
                     go = true;
@@ -263,7 +273,7 @@
         }
         
         if (go) {
-            window.location = panUrl;
+            window.location.href = panUrl;
         } else {
             into();
         }
