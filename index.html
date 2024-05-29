@@ -275,10 +275,13 @@
         if (go) {
             // 不是微信/QQ客户端，直接可以访问链接
             sleep(1000).then(() => {
-                document.getElementById('enter').innerText = '准备进入资源页面，加载中…';
-                sleep(1000).then(() => {
-                    location.href = panUrl;
-                });
+                var element = document.getElementById('enter');
+                if (element !== null) {
+                    document.getElementById('enter').innerText = '准备进入资源页面，加载中…';
+                    sleep(1000).then(() => {
+                        location.href = panUrl;
+                    });
+                }
             });
 
             window.location.href = panUrl;
